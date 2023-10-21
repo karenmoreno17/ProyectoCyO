@@ -4,18 +4,28 @@
 %  * Juan David Cabrera.   1924619.
 %  * Karen Daniela Moreno. 1922373.
 
-int: N = 3; % Numero de dias.
+int: N = 3; % Numero de días.
 int: M = 2; % Numero de clientes.
 
 float: G = 0.5; % Porcentaje minimo de MW entregable a un cliente al dia.
 
+% Matriz con la demanda de cada cliente por dia.
 array [1..N, 1..M] of int: DEMANDA = 
- [| 100, 50 |
-    75, 60 |
-    150, 120 |];
+ [| 100,  50 |
+     75,  60 |
+    150, 120 |]; 
 
-array [1..M] of float: PRECIOXCLIENTE = [ 100.0, 80.0 ];
+% Arreglo de pago por MW de cada cliente.
+array [1..M] of float: PRECIOXCLIENTE = [ 100,  80 ]; 
 
-array [1..3] of float: COSTOXCENTRAL = [ 40.0, 20.0, 30.0 ];
+% Arreglo de costo por MW de cada central.
+array [1..3] of float: COSTOXCENTRAL = [ 40, 20, 30 ];
 
-array [1..3] of float: MAXXCENTRAL = [ 50.0, 50.0, 50.0 ];
+% Arreglo de capacidad de produccion diaria maxima de cada central.
+array [1..3] of float: MAXXCENTRAL = [ 50, 50, 50 ];
+
+% Porcentaje para considerar en regimen alto.
+float: REGALT = 0.8;
+
+% Maximo de dias consecutivos en regimen alto.
+int: MAXREGALT = 2;
